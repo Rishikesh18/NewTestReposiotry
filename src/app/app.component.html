@@ -1,0 +1,10 @@
+<div class="container">
+  <app-add-servers (serverCreated)='onServerAdded($event)' (blueprintCreated)='onBlueprintAdded($event)'></app-add-servers>
+  <hr>
+  <app-server-element *ngFor='let serverElement of serverElements' [srvElement]='serverElement'>
+    <p #paraContent>
+      <strong *ngIf="serverElement.type === 'Test Type'" style="color: red">{{ serverElement.content }}</strong>
+      <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+    </p>
+  </app-server-element>
+</div>
